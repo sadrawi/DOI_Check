@@ -44,7 +44,6 @@ def check_with_cache(references, progress_bar, status_line):
 st.title("Reference DOI checker")
 st.caption("Supported by Claude Opus 5.0 (Anthropic PBC, San Francisco, California, U.S.")
 
-
 tab_docx, tab_paste = st.tabs(["Word document", "Paste a list"])
 
 with tab_docx:
@@ -65,7 +64,7 @@ def render(results, docx_bytes, filename):
         counts[key] = counts.get(key, 0) + 1
 
     columns = st.columns(4)
-    for i, key in enumerate(["OK", "WRONG DOI", "DOI DOES NOT EXIST", "NO DOI"]):
+    for i, key in enumerate(["OK", "WRONG PAPER", "DOI DOES NOT EXIST", "NO DOI"]):
         columns[i].metric(key.title(), counts.get(key, 0))
 
     problems = results[results["status"] != "OK"]
@@ -79,13 +78,12 @@ def render(results, docx_bytes, filename):
 
     with st.expander("Full detail"):
         for _, row in results.iterrows():
-            # st.markdown("**[" + str(row["n"]) + "]**")
-            st.markdown("**[" + str(row["n"]) + "] " + row["reference"][:300] + "   ->    [" + row["status"] + "]**")
-            # if row["resolves_to"] != "":
-            #     st.caption("Given DOI points to: " + row["resolves_to"])
+            st.markdown("**[" + str(row["n"]) + "] " + row["status"] + "**")
+            st.text(row["reference"][:300])
+            if row["resolves_to"] != "":
+                st.caption("Given DOI points to: " + row["resolves_to"])
             if row["correct_doi"] != "":
-                st.caption("https://doi.org/" + row["correct_doi"])
-            st.markdown(" ")
+                st.caption("https://doi.org/" + row["correct_doi"] + "  (score " + str(row["score"]) + ")")
 
     # left, right = st.columns(2)
     # left.download_button(
