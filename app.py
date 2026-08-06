@@ -86,20 +86,20 @@ def render(results, docx_bytes, filename):
             if row["correct_doi"] != "":
                 st.caption("https://doi.org/" + row["correct_doi"] + "  (score " + str(row["score"]) + ")")
 
-    left, right = st.columns(2)
-    left.download_button(
-        "Download results CSV",
-        results.drop(columns=["paragraphs"]).to_csv(index=False).encode("utf-8"),
-        file_name="doi_check_results.csv",
-        mime="text/csv",
-    )
-    if docx_bytes is not None:
-        right.download_button(
-            "Download marked document",
-            docx_bytes,
-            file_name=filename,
-            mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-        )
+    # left, right = st.columns(2)
+    # left.download_button(
+    #     "Download results CSV",
+    #     results.drop(columns=["paragraphs"]).to_csv(index=False).encode("utf-8"),
+    #     file_name="doi_check_results.csv",
+    #     mime="text/csv",
+    # )
+    # if docx_bytes is not None:
+    #     right.download_button(
+    #         "Download marked document",
+    #         docx_bytes,
+    #         file_name=filename,
+    #         mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    #     )
 
 
 if run_docx and uploaded is not None:
