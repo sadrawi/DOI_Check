@@ -357,7 +357,7 @@ def check_reference(reference):
                 row["correct_doi"] = given_doi
                 row["note"] = note
                 return row
-            row["status"] = "WRONG DOI"
+            row["status"] = "WRONG PAPER"
             row["note"] = "resolves to a different article; " + note
     else:
         row["status"] = "NO DOI"
@@ -490,8 +490,8 @@ def status_colour(status):
     """
     if status == "OK":
         return WD_COLOR_INDEX.BRIGHT_GREEN, RGBColor(0, 110, 0), "OK"
-    if status.startswith("WRONG DOI"):
-        return WD_COLOR_INDEX.PINK, RGBColor(192, 0, 0), "WRONG DOI"
+    if status.startswith("WRONG PAPER"):
+        return WD_COLOR_INDEX.PINK, RGBColor(192, 0, 0), "WRONG PAPER"
     if status.startswith("DOI DOES NOT EXIST"):
         return WD_COLOR_INDEX.PINK, RGBColor(192, 0, 0), "DOI NOT REGISTERED"
     if status.startswith("NO DOI"):
@@ -624,7 +624,7 @@ def report(results):
     print("\n" + "=" * 70)
     print("SUMMARY")
     print("=" * 70)
-    for status in ["OK", "WRONG DOI", "DOI DOES NOT EXIST", "NO DOI"]:
+    for status in ["OK", "WRONG PAPER", "DOI DOES NOT EXIST", "NO DOI"]:
         count = 0
         for value in results["status"]:
             if value.startswith(status):
