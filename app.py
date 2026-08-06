@@ -42,9 +42,8 @@ def check_with_cache(references, progress_bar, status_line):
 # ----------------------------------------------------------------------
 
 st.title("Reference DOI checker")
-st.caption(
-    "This is supported by Claude 5"
-)
+st.caption("Supported by Claude Opus 5.0 (Anthropic PBC, San Francisco, California, U.S.)
+
 
 tab_docx, tab_paste = st.tabs(["Word document", "Paste a list"])
 
