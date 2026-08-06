@@ -63,6 +63,10 @@ def render(results, docx_bytes, filename):
         key = status.split(" - ")[0]
         counts[key] = counts.get(key, 0) + 1
 
+    
+    table = results[["n", "status", "given_doi"]]
+    st.dataframe(table, use_container_width=True, hide_index=True)
+
     columns = st.columns(4)
     for i, key in enumerate(["OK", "WRONG PAPER", "DOI DOES NOT EXIST", "NO DOI"]):
         columns[i].metric(key.title(), counts.get(key, 0))
@@ -73,8 +77,7 @@ def render(results, docx_bytes, filename):
     else:
         st.warning(str(len(problems)) + " entries need attention.")
 
-    table = results[["n", "status", "given_doi"]]
-    st.dataframe(table, use_container_width=True, hide_index=True)
+    
 
     with st.expander("Full detail"):
         for _, row in results.iterrows():
