@@ -43,9 +43,7 @@ def check_with_cache(references, progress_bar, status_line):
 
 st.title("Reference DOI checker")
 st.caption(
-    "Every DOI is resolved against Crossref. A DOI that is registered but points "
-    "to a different article is the failure mode that matters - it looks correct "
-    "until a reviewer clicks it."
+    "This is supported by Claude 5"
 )
 
 tab_docx, tab_paste = st.tabs(["Word document", "Paste a list"])
