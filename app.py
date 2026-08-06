@@ -96,13 +96,7 @@ def render(results, docx_bytes, filename):
         file_name="doi_check_results.csv",
         mime="text/csv",
     )
-    if docx_bytes is not None:
-        right.download_button(
-            "Download marked document",
-            docx_bytes,
-            file_name=filename,
-            mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-        )
+    
 
 
 if run_docx and uploaded is not None:
