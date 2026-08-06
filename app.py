@@ -65,7 +65,7 @@ def render(results, docx_bytes, filename):
         counts[key] = counts.get(key, 0) + 1
 
     columns = st.columns(4)
-    for i, key in enumerate(["OK", "WRONG PAPER", "DOI DOES NOT EXIST", "NO DOI"]):
+    for i, key in enumerate(["OK", "WRONG DOI", "DOI DOES NOT EXIST", "NO DOI"]):
         columns[i].metric(key.title(), counts.get(key, 0))
 
     problems = results[results["status"] != "OK"]
