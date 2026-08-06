@@ -14,6 +14,7 @@ import doi_core as core
 
 
 st.set_page_config(page_title="Reference DOI checker", page_icon="check", layout="wide")
+st.caption("Supported by Claude Opus 4.8 (Anthropic PBC, San Francisco, California, U.S.) ")
 
 
 # ----------------------------------------------------------------------
