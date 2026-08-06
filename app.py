@@ -84,7 +84,7 @@ def render(results, docx_bytes, filename):
             if row["resolves_to"] != "":
                 st.caption("Given DOI points to: " + row["resolves_to"])
             if row["correct_doi"] != "":
-                st.caption("https://doi.org/" + row["correct_doi"] ")
+                st.caption("https://doi.org/" + row["correct_doi"])
 
     # left, right = st.columns(2)
     # left.download_button(
