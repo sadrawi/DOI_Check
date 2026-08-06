@@ -13,7 +13,6 @@ import doi_core as core
 
 st.set_page_config(page_title="Reference DOI checker", page_icon="check", layout="wide")
 
-st.caption("Supported by Claude Opus 4.8 (Anthropic PBC, San Francisco, California, U.S.) ")
 
 # ----------------------------------------------------------------------
 # Cached lookups - Streamlit reruns the whole script on every interaction,
@@ -43,11 +42,7 @@ def check_with_cache(references, progress_bar, status_line):
 # ----------------------------------------------------------------------
 
 st.title("Reference DOI checker")
-st.caption(
-    "Every DOI is resolved against Crossref. A DOI that is registered but points "
-    "to a different article is the failure mode that matters - it looks correct "
-    "until a reviewer clicks it."
-)
+st.caption("Supported by Claude Opus 5 (Anthropic PBC, San Francisco, California, U.S.) ")
 
 tab_docx, tab_paste = st.tabs(["Word document", "Paste a list"])
 
