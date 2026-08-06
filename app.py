@@ -80,7 +80,7 @@ def render(results, docx_bytes, filename):
     with st.expander("Full detail"):
         for _, row in results.iterrows():
             # st.markdown("**[" + str(row["n"]) + "]**")
-            st.markdown("**[" + str(row["n"]) + "] " + row["reference"][:300] + " ==>  [" + row["status"] + "]**")
+            st.markdown("**[" + str(row["n"]) + "] " + row["reference"][:300] + "   ->    [" + row["status"] + "]**")
             # if row["resolves_to"] != "":
             #     st.caption("Given DOI points to: " + row["resolves_to"])
             if row["correct_doi"] != "":
