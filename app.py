@@ -86,7 +86,7 @@ def render(results, docx_bytes, filename):
             if row["correct_doi"] != "":
                 st.caption("https://doi.org/" + row["correct_doi"])
             st.markdown(row["status"])
-            # st.markdown("**[" + str(row["n"]) + "] " + row["status"] + "**")
+            st.markdown("**[" + row["status"] + "]**")
 
     # left, right = st.columns(2)
     # left.download_button(
